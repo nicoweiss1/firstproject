@@ -1,16 +1,24 @@
+//React importiert für Libary und unser Hook useState
+//das css von bootstrap für die Stylung des Formularfeldes
 import React, { useState } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  // Unsere State Variabeln 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
 
+  //Unsere Validierungsfunktion
   const validateForm = () => {
+    //leeres objekt newErrors dient dazu Fehlermeldungen zu sammeln
     const newErrors = {};
+    //Wenn nichts eingegeben wurde: 'E-Mail ist erforderlich'    
     if (!email) {
       newErrors.email = 'E-Mail ist erforderlich';
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
+    }   
+    //das in der Klammer ein Regex ausdruck, überprüft ob es ein @ hat
+    else if (!/\S+@\S+\.\S+/.test(email)) {
       newErrors.email = 'E-Mail ist ungültig';
     }
     if (!password) {
