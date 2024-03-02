@@ -17,16 +17,22 @@ function App() {
     if (!email) {
       newErrors.email = 'E-Mail ist erforderlich';
     }   
-    //das in der Klammer ein Regex ausdruck, überprüft ob es ein @ hat
+    //das in der Klammer ein Regex ausdruck, überprüft ob es ein @ hat und mindestens einen punkt nach dem @
+    //wenn nicht, wird die email als ungültig ausgegeben
     else if (!/\S+@\S+\.\S+/.test(email)) {
       newErrors.email = 'E-Mail ist ungültig';
     }
+    //Wenn nichts beim passwort geschrieben wurde 'Passwort ist erforderlich' 
     if (!password) {
       newErrors.password = 'Passwort ist erforderlich';
-    } else if (password.length < 6) {
+    } 
+    //Wenn die password länge kleiner als 6 ist : neuer text 'Passwort muss mindestens 6 Zeichen lang sein'
+    else if (password.length < 6) {
       newErrors.password = 'Passwort muss mindestens 6 Zeichen lang sein';
     }
+    //new Errors wird vewendet um den Zustand errors zu verändern
     setErrors(newErrors);
+    
     return Object.keys(newErrors).length === 0;
   };
 
