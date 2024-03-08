@@ -33,6 +33,7 @@ function App() {
     //new Errors wird vewendet um den Zustand errors zu verändern
     setErrors(newErrors);
     
+    
     return Object.keys(newErrors).length === 0;
   };
 
