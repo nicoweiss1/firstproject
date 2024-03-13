@@ -33,18 +33,21 @@ function App() {
     //new Errors wird vewendet um den Zustand errors zu verändern
     setErrors(newErrors);
     
-    
+    //gibt ein array aus den feldnamen zurück an , bleibt der array leer.
+    //===0 ist der überprüfungswert eine lange von 0 bedeuted das keine fehler vorhanden sind
     return Object.keys(newErrors).length === 0;
   };
 
+  // event.preventDefault bedeutet unsere Seite nach der Anmeldung nicht neu geladen wird verhindert sozusagen das Erreigniss
+  //wenn validateForm true ist taucht in der console das untenstehende auf mit der email und dem passwort
   const handleSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault(); 
     if (validateForm()) {
       console.log('Anmeldung erfolgreich', { email, password });
-      // Logik zur Authentifizierung hinzufügen
     }
   };
 
+  // einfacher für mich zu verstehen, darum nicht auskommentiert
   return (
     <form onSubmit={handleSubmit}>
       <div>
